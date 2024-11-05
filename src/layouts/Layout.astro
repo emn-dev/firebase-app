@@ -26,17 +26,12 @@ const { title } = Astro.props;
 		<script>
 
 			declare global {
-				interface Window { firebase: any; }
+				interface Window { firebase: any; welcomeName: string; }
 			}
 
 			document.addEventListener("DOMContentLoaded", function () {				
-				window.firebase?.analytics(); // call to activate
-				window.firebase?.analytics().logEvent("testrick_tutorial_completed");
-				
-				window.firebase.database().ref('/name').on('value', (snapshot:any) => {
-					// var aaa = snapshot.val();
-					console.log("hmm...what happened? snapshot.val() = ", snapshot.val());
-				});
+				window.firebase?.analytics(); 
+				window.firebase?.analytics().logEvent("testrick_tutorial_completed");			
 			});
 		  </script>
 	</body>
