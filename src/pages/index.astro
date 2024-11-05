@@ -33,7 +33,7 @@ import Card from '../components/Card.astro';
 				</linearGradient>
 			</defs>
 		</svg>
-		<h1><span id="welcome-name"></span> to <span class="text-gradient">emn-pf</span></h1>
+		<h1><span id="welcome-name">...</span> to <span class="text-gradient">emn-pf</span></h1>
 		<p class="instructions">
 			To get started, open the directory <code>src/pages</code> in your project.<br />
 			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
@@ -66,7 +66,7 @@ import Card from '../components/Card.astro';
 		document.addEventListener("DOMContentLoaded", function () {							
 			window.firebase.database().ref('/name').on('value', (snapshot:any) => {					
 				console.log("snapshot.val() = ", snapshot.val());
-				const name = snapshot.val();
+				const name = snapshot.val() || 'not_set';
 				document.getElementById('welcome-name')!.textContent = name;
 			});
 		});
